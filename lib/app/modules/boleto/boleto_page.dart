@@ -1,36 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../global_widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'boleto_controller.dart';
+import 'local_widgets/boleto_history.dart';
 
-class BoletoPage extends GetView<BoletoController> {
+class BoletoPage extends StatefulWidget {
+  final List<String> months;
+
+  const BoletoPage({
+    Key key,
+    @required this.months,
+  }) : super(key: key);
+
+  @override
+  _BoletoPageState createState() => _BoletoPageState();
+}
+
+class _BoletoPageState extends State<BoletoPage>
+    with SingleTickerProviderStateMixin {
+  BoletoController controller;
+  TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.find<BoletoController>();
+    tabController = TabController(vsync: this, length: widget.months.length);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('BoletoPage')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            GetX<BoletoController>(
-              builder: (controller) {
-                return Text(
-                  controller.counter.toString(),
-                  style: Theme.of(context).textTheme.headline4,
-                );
-              },
-            ),
-          ],
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {},
+        ),
+        title: Text(
+          'BOLETOS',
+          style: TextStyle(fontWeight: FontWeight.normal),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.increment,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      body: BoletoHistory(
+        tabController: tabController,
+        months: widget.months,
       ),
+      bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 }
