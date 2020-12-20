@@ -15,7 +15,7 @@ void main() {
       defaultTransition: Transition.fade,
       getPages: AppPages.pages,
       translations: AppTranslations(),
-      locale: Languages.localeFrom(Languages.pt_BR),
+      locale: Get.deviceLocale,
     ),
   );
 }
