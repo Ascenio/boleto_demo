@@ -1,3 +1,4 @@
+import 'package:boleto_demo/app/translations/languages/pt_BR.dart';
 import 'package:boleto_demo/app/utils/datetime_formatter/datetime_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,14 +41,15 @@ class BoletoCard extends StatelessWidget {
             ),
             SizedBox(height: spacingBetweenFields),
             BoletoCardField(
-              title: 'VENCIMENTO: ',
+              title: TranslationKeys.expirationDate.tr,
               description: formatter.format(boleto.expirationDate),
             ),
             SizedBox(height: spacingBetweenFields),
             BoletoCardField(
-              title: 'SITUAÇÃO: ',
-              description:
-                  boleto.status == BoletoStatus.OPEN ? 'ABERTO' : 'QUITADO',
+              title: TranslationKeys.status.tr,
+              description: boleto.status == BoletoStatus.OPEN
+                  ? TranslationKeys.boletoStatusOpen.tr
+                  : TranslationKeys.boletoStatusPaid.tr,
               descriptionStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: boleto.status == BoletoStatus.OPEN

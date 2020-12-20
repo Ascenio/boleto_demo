@@ -2,6 +2,7 @@ import 'package:boleto_demo/app/widgets/loading/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../translations/languages/pt_BR.dart';
 import '../../widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import '../../utils/month.dart';
 import 'boleto_controller.dart';
@@ -40,7 +41,7 @@ class _BoletoPageState extends State<BoletoPage>
           onPressed: () {},
         ),
         title: Text(
-          'BOLETOS',
+          TranslationKeys.boletos.tr,
           style: TextStyle(fontWeight: FontWeight.normal),
         ),
       ),

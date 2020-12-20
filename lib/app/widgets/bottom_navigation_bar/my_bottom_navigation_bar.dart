@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../translations/languages/pt_BR.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({Key key}) : super(key: key);
@@ -10,15 +13,15 @@ class MyBottomNavigationBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'INÍCIO',
+          label: TranslationKeys.home.tr,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'PERFIL',
+          label: TranslationKeys.profile.tr,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.logout),
-          label: 'SAIR',
+          label: TranslationKeys.logout.tr,
         ),
       ],
     );
