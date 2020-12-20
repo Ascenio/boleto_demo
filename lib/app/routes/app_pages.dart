@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import '../modules/boleto/boleto_binding.dart';
 import '../modules/boleto/boleto_page.dart';
-import '../utils/months.dart';
+import '../utils/month.dart';
 import 'routes.dart';
 
 abstract class AppPages {
@@ -10,7 +10,7 @@ abstract class AppPages {
     GetPage(
       name: Routes.BOLETO,
       page: () => BoletoPage(
-        months: months,
+        months: Months.values,
       ),
       binding: BoletoBinding(),
     )

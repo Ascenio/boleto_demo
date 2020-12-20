@@ -1,6 +1,10 @@
+import 'package:boleto_demo/app/utils/datetime_formatter/datetime_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../theme/color_theme.dart';
 import '../../data/model/boleto_model.dart';
+import 'boleto_card_button.dart';
 import 'boleto_card_field.dart';
 
 class BoletoCard extends StatelessWidget {
@@ -16,6 +20,8 @@ class BoletoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    // FIXME injetar a dependência
+    final formatter = Get.find<DateTimeFormatter>();
     return Card(
       elevation: 1,
       shape: RoundedRectangleBorder(
@@ -27,7 +33,6 @@ class BoletoCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              //'AAABC.CCCCX DDDDD.DDDDDY EEEEE.EEEEEZ K UUUUVVVVVVVVVV',
               boleto.code,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -36,19 +41,17 @@ class BoletoCard extends StatelessWidget {
             SizedBox(height: spacingBetweenFields),
             BoletoCardField(
               title: 'VENCIMENTO: ',
-              description: boleto.expirationDate.toString(),
-              //description: '10/02/2021',
+              description: formatter.format(boleto.expirationDate),
             ),
             SizedBox(height: spacingBetweenFields),
             BoletoCardField(
               title: 'SITUAÇÃO: ',
-              // description: 'ABERTO',
               description:
                   boleto.status == BoletoStatus.OPEN ? 'ABERTO' : 'QUITADO',
               descriptionStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: boleto.status == BoletoStatus.OPEN
-                    ? theme.accentColor
+                    ? secondaryColor
                     : Colors.green,
               ),
             ),
@@ -56,7 +59,6 @@ class BoletoCard extends StatelessWidget {
             BoletoCardField(
               title: 'TOTAL: ',
               description: 'R\$ ${boleto.price.toStringAsFixed(2)}',
-              //  description: 'R\$ 32,90',
               descriptionStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.red,
@@ -65,35 +67,24 @@ class BoletoCard extends StatelessWidget {
             SizedBox(height: spacingBetweenFields),
             Text(
               'Obs.: Referente ao contrato #${boleto.crontact.id}',
-              //'Obs.: Referente ao contrato #064634',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Divider(color: Colors.grey),
             Row(
               children: [
-                Flexible(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      elevation: MaterialStateProperty.all(0),
-                      backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).primaryColor,
+                boleto.status == BoletoStatus.PAID
+                    ? Spacer()
+                    : Flexible(
+                        child: BoletoCardButton(
+                          text: 'COPIAR CÓD BARRAS',
+                          onPressed: () {},
+                        ),
                       ),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
-                    ),
-                    child: Text('COPIAR CÓD BARRAS'),
-                    onPressed: () {},
-                  ),
-                ),
                 SizedBox(width: spacingBetweenFields),
                 Flexible(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      elevation: MaterialStateProperty.all(0),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
-                    ),
-                    child: Text('COPIAR CÓD BARRAS'),
+                  child: BoletoCardButton(
+                    color: theme.accentColor,
+                    text: 'DOWNLOAD BOLETO',
                     onPressed: () {},
                   ),
                 ),

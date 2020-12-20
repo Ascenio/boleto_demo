@@ -1,12 +1,14 @@
+import 'package:boleto_demo/app/widgets/boleto/no_boleto_found.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/month.dart';
 import '../../../data/model/boleto_model.dart';
-import '../../../global_widgets/boleto/boleto_card.dart';
+import '../../../widgets/boleto/boleto_card.dart';
 
 class BoletoHistory extends StatelessWidget {
   final TabController tabController;
-  final List<String> months;
-  final Map<String, List<BoletoModel>> boletosByMonth;
+  final List<Month> months;
+  final Map<Month, List<BoletoModel>> boletosByMonth;
 
   const BoletoHistory({
     Key key,
@@ -32,7 +34,7 @@ class BoletoHistory extends StatelessWidget {
                   (month) => Padding(
                     padding: const EdgeInsets.all(4),
                     child: Text(
-                      month,
+                      month.prefix,
                       style: Theme.of(context).textTheme.headline6.copyWith(
                             fontWeight: FontWeight.normal,
                             color: Colors.black54,
@@ -49,11 +51,14 @@ class BoletoHistory extends StatelessWidget {
             children: months.map(
               (month) {
                 final boletos = boletosByMonth[month];
+                if (boletos?.isEmpty ?? true) {
+                  return NoBoletoFound();
+                }
                 return ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
                   itemCount: boletos.length,
                   itemBuilder: (_, index) => BoletoCard(boleto: boletos[index]),
+                  physics: BouncingScrollPhysics(),
+                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 );
               },
             ).toList(),

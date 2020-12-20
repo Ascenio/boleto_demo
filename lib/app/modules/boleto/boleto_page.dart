@@ -1,12 +1,14 @@
+import 'package:boleto_demo/app/widgets/loading/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../global_widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
+import '../../widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
+import '../../utils/month.dart';
 import 'boleto_controller.dart';
-import 'local_widgets/boleto_history.dart';
+import 'widgets/boleto_history.dart';
 
 class BoletoPage extends StatefulWidget {
-  final List<String> months;
+  final List<Month> months;
 
   const BoletoPage({
     Key key,
@@ -42,9 +44,17 @@ class _BoletoPageState extends State<BoletoPage>
           style: TextStyle(fontWeight: FontWeight.normal),
         ),
       ),
-      body: BoletoHistory(
-        tabController: tabController,
-        months: widget.months,
+      body: Obx(
+        () => AnimatedSwitcher(
+          duration: Duration(milliseconds: 700),
+          child: controller.boletosByMonth.isEmpty
+              ? Loading()
+              : BoletoHistory(
+                  tabController: tabController,
+                  months: widget.months,
+                  boletosByMonth: controller.boletosByMonth,
+                ),
+        ),
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
     );

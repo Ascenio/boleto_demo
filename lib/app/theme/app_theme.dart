@@ -9,6 +9,11 @@ final ThemeData appThemeData = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   textTheme: textTheme,
   primaryTextTheme: textTheme,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(secondaryColor),
+    ),
+  ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
   ),
