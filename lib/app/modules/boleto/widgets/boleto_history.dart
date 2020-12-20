@@ -1,9 +1,9 @@
-import 'package:boleto_demo/app/widgets/boleto/no_boleto_found.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/month.dart';
 import '../../../data/model/boleto_model.dart';
+import '../../../utils/month.dart';
 import '../../../widgets/boleto/boleto_card.dart';
+import '../../../widgets/boleto/no_boleto_found.dart';
 
 class BoletoHistory extends StatelessWidget {
   final TabController tabController;

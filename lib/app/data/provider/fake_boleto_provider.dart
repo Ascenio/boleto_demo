@@ -1,7 +1,7 @@
-import 'package:boleto_demo/app/data/provider/boleto_provider.dart';
 import 'package:meta/meta.dart';
 
 import '../model/boleto_model.dart';
+import 'boleto_provider.dart';
 import 'faker/faker.dart';
 
 class FakeBoletoProvider implements BoletoProvider {

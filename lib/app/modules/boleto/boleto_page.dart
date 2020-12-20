@@ -1,10 +1,10 @@
-import 'package:boleto_demo/app/widgets/loading/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../translations/languages/pt_BR.dart';
-import '../../widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import '../../utils/month.dart';
+import '../../widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
+import '../../widgets/loading/loading.dart';
 import 'boleto_controller.dart';
 import 'widgets/boleto_history.dart';
 

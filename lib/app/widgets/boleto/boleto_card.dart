@@ -1,10 +1,10 @@
-import 'package:boleto_demo/app/translations/languages/pt_BR.dart';
-import 'package:boleto_demo/app/utils/datetime_formatter/datetime_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../theme/color_theme.dart';
 import '../../data/model/boleto_model.dart';
+import '../../theme/color_theme.dart';
+import '../../translations/languages/pt_BR.dart';
+import '../../utils/datetime_formatter/datetime_formatter.dart';
 import 'boleto_card_button.dart';
 import 'boleto_card_field.dart';
 
