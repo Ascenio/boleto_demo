@@ -4,6 +4,7 @@ import '../../../data/model/boleto_model.dart';
 import '../../../utils/month.dart';
 import '../../../widgets/boleto/boleto_card.dart';
 import '../../../widgets/boleto/no_boleto_found.dart';
+import 'months_tab_bar.dart';
 
 class BoletoHistory extends StatelessWidget {
   final TabController tabController;
@@ -23,27 +24,7 @@ class BoletoHistory extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
-          child: TabBar(
-            indicatorColor: Theme.of(context).primaryColor,
-            indicatorSize: TabBarIndicatorSize.label,
-            isScrollable: true,
-            controller: tabController,
-            physics: BouncingScrollPhysics(),
-            tabs: months
-                .map(
-                  (month) => Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Text(
-                      month.prefix,
-                      style: Theme.of(context).textTheme.headline6.copyWith(
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black54,
-                          ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
+          child: MonthsTabBar(tabController: tabController, months: months),
         ),
         Expanded(
           child: TabBarView(
