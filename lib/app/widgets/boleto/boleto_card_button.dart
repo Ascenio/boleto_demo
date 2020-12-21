@@ -24,7 +24,10 @@ class BoletoCardButton extends StatelessWidget {
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
       ),
-      child: Text(text),
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Text(text),
+      ),
       onPressed: onPressed,
     );
   }

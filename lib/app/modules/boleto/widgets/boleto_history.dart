@@ -23,7 +23,7 @@ class BoletoHistory extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child: MonthsTabBar(tabController: tabController, months: months),
         ),
         Expanded(
@@ -37,9 +37,12 @@ class BoletoHistory extends StatelessWidget {
                 }
                 return ListView.builder(
                   itemCount: boletos.length,
-                  itemBuilder: (_, index) => BoletoCard(boleto: boletos[index]),
+                  itemBuilder: (_, index) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: BoletoCard(boleto: boletos[index]),
+                  ),
                   physics: BouncingScrollPhysics(),
-                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  padding: EdgeInsets.only(left: 16, right: 16),
                 );
               },
             ).toList(),

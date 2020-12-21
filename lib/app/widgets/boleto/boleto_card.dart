@@ -24,7 +24,7 @@ class BoletoCard extends StatelessWidget {
     // FIXME injetar a dependência
     final formatter = Get.find<DateTimeFormatter>();
     return Card(
-      elevation: 1,
+      elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -71,7 +71,9 @@ class BoletoCard extends StatelessWidget {
               'Obs.: Referente ao contrato #${boleto.crontact.id}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 4),
             Divider(color: Colors.grey),
+            const SizedBox(height: 4),
             Row(
               children: [
                 boleto.status == BoletoStatus.PAID
