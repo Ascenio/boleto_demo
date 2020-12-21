@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
-import '../translations/languages/pt_BR.dart';
+import '../translations/translation_keys.dart';
 
 class Month {
   final int id;

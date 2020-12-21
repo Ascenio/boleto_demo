@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../translations/languages/pt_BR.dart';
+import '../../translations/translation_keys.dart';
 import '../../utils/month.dart';
 import '../../widgets/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import '../../widgets/loading/loading.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../translations/languages/pt_BR.dart';
+import '../../translations/translation_keys.dart';
 
 class NoBoletoFound extends StatelessWidget {
   const NoBoletoFound({Key key}) : super(key: key);

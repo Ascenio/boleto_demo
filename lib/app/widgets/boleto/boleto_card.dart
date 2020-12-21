@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../data/model/boleto_model.dart';
 import '../../theme/color_theme.dart';
-import '../../translations/languages/pt_BR.dart';
+import '../../translations/translation_keys.dart';
 import '../../utils/datetime_formatter/datetime_formatter.dart';
 import 'boleto_card_button.dart';
 import 'boleto_card_field.dart';
