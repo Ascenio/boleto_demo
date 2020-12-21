@@ -59,7 +59,7 @@ class BoletoCard extends StatelessWidget {
             ),
             SizedBox(height: spacingBetweenFields),
             BoletoCardField(
-              title: 'TOTAL: ',
+              title: TranslationKeys.boletoPrice.tr,
               description: 'R\$ ${boleto.price.toStringAsFixed(2)}',
               descriptionStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class BoletoCard extends StatelessWidget {
             ),
             SizedBox(height: spacingBetweenFields),
             Text(
-              'Obs.: Referente ao contrato #${boleto.crontact.id}',
+              '${TranslationKeys.boletoObservation.tr} #${boleto.crontact.id}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
@@ -80,7 +80,7 @@ class BoletoCard extends StatelessWidget {
                     ? Spacer()
                     : Flexible(
                         child: BoletoCardButton(
-                          text: 'COPIAR CÓD BARRAS',
+                          text: TranslationKeys.copyBoletoCodeButton.tr,
                           onPressed: () {},
                         ),
                       ),
@@ -88,7 +88,7 @@ class BoletoCard extends StatelessWidget {
                 Flexible(
                   child: BoletoCardButton(
                     color: theme.accentColor,
-                    text: 'DOWNLOAD BOLETO',
+                    text: TranslationKeys.downloadBoletoButton.tr,
                     onPressed: () {},
                   ),
                 ),

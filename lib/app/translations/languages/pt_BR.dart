@@ -19,6 +19,11 @@ const pt_BR = <String, String>{
   TranslationKeys.status: 'SITUAÇÃO: ',
   TranslationKeys.boletoStatusOpen: 'ABERTO',
   TranslationKeys.boletoStatusPaid: 'QUITADO',
+  TranslationKeys.boletoPrice: 'TOTAL: ',
+  TranslationKeys.boletoObservation: 'Obs.: Referente ao contrato ',
+  TranslationKeys.copyBoletoCodeButton: 'COPIAR CÓD BARRAS',
+  TranslationKeys.downloadBoletoButton: 'DOWNLOAD BOLETO',
+  TranslationKeys.noBoletoFound: 'Nenhum boleto a ser pago ;)',
 };
 
 abstract class TranslationKeys {
@@ -42,4 +47,9 @@ abstract class TranslationKeys {
   static const status = 'status';
   static const boletoStatusOpen = 'boletoStatusOpen';
   static const boletoStatusPaid = 'boletoStatusPaid';
+  static const boletoPrice = 'boletoPrice';
+  static const boletoObservation = 'boletoObservation';
+  static const copyBoletoCodeButton = 'copyBoletoCodeButton';
+  static const downloadBoletoButton = 'downloadBoletoButton';
+  static const noBoletoFound = 'noBoletoFound';
 }
